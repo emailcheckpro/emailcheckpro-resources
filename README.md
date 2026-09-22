@@ -18,12 +18,16 @@ The canonical version of every product fact lives on the website. Where an artic
 
 ## Official API example repositories
 
-Each product has its own repository with an OpenAPI contract, a machine-readable `product.json`, an `llms.txt` summary and runnable examples in seven languages.
+One repository per product, each with an OpenAPI contract, a machine-readable `product.json`, an `llms.txt` summary and runnable examples in seven languages.
 
-| Product | Repository |
-|---|---|
-| [Email Deliverability Check](https://github.com/emailcheckpro/email-deliverability-checker-api) | `email-deliverability-checker-api` |
-| [Email Avatar Check](https://github.com/emailcheckpro/email-avatar-checker-api) | `email-avatar-checker-api` |
+| Product | Shape | Repository |
+|---|---|---|
+| [Email Deliverability Check](https://github.com/emailcheckpro/email-deliverability-checker-api) | Realtime | `email-deliverability-checker-api` |
+| [Email Avatar Check](https://github.com/emailcheckpro/email-avatar-checker-api) | Realtime | `email-avatar-checker-api` |
+| [Email Bulk Avatar Check](https://github.com/emailcheckpro/email-bulk-avatar-api) | Bulk (async) | `email-bulk-avatar-api` |
+| [Email Bulk Deliverability Check](https://github.com/emailcheckpro/email-bulk-deliverability-api) | Bulk (async) | `email-bulk-deliverability-api` |
+
+A **realtime** check answers inside the same HTTP response (`POST /api/v1/check`, or `POST /api/v1/batch-check` for up to 100 identifiers). A **bulk task** takes a file and answers later (`POST /api/v1/bulk-tasks`). They are separate endpoints and are not interchangeable.
 
 ## Responsible use
 
